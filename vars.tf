@@ -244,6 +244,54 @@ variable "aks_ssh_public_key" {
   default     = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQC0l2v2c8jBY1bV3aR8z0jvG3FStz2Cm1uJ2bHhNNfq7h1k9r0WfF2lNXDvcQJdGq7vK5bS2s9T6Y3Q2V3vL0nP2jZ3nOnkK9a2m6q5vN1T/7DWqhe2q2hU1VJlsA5S+ZcyR3vKdL0S2b6eJb58y3aD2dJ0gk9Y2xq6Qxnhp4Ylv1B5xQ=="
 }
 
+variable "eks_cluster_name" {
+  description = "Name of the AWS EKS cluster"
+  type        = string
+  default     = "skill1-eks-cluster"
+}
+
+variable "eks_version" {
+  description = "Kubernetes version for the EKS cluster"
+  type        = string
+  default     = "1.29"
+}
+
+variable "eks_node_group_name" {
+  description = "Name of the EKS managed node group"
+  type        = string
+  default     = "skill1-node-group"
+}
+
+variable "eks_node_group_desired_size" {
+  description = "Desired number of nodes in the EKS node group"
+  type        = number
+  default     = 2
+}
+
+variable "eks_node_group_min_size" {
+  description = "Minimum number of nodes in the EKS node group"
+  type        = number
+  default     = 1
+}
+
+variable "eks_node_group_max_size" {
+  description = "Maximum number of nodes in the EKS node group"
+  type        = number
+  default     = 3
+}
+
+variable "eks_node_instance_type" {
+  description = "EC2 instance type for EKS worker nodes"
+  type        = string
+  default     = "t3.medium"
+}
+
+variable "eks_cluster_endpoint_public_access" {
+  description = "Whether the EKS cluster public endpoint is enabled"
+  type        = bool
+  default     = true
+}
+
 variable "autoscaling_min_capacity" {
   description = "Minimum ECS tasks for autoscaling"
   type        = number
